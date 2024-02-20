@@ -24,6 +24,28 @@ console.log(Number(0.1 + 0.2) == 0.3);
 // 3. Write program to find the sum of positive numbers. But if the user enters a negative numbers, the
 // loop ends, if the negative number entered is not added to sum
 
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let sum = 0;
+
+const getNumber = () => {
+  readline.question('Enter a positive number (Enter a negative number to stop): ', number => {
+      const num = parseInt(number);
+      if (num < 0) {
+          console.log(`Sum of positive numbers: ${sum}`);
+          readline.close();
+      } else {
+          sum += num;
+          getNumber(); // Tekrar sayı iste
+      }
+  });
+};
+
+getNumber(); // İlk sayıyı iste
+
 
 // Define a variable to hold the sum
 // let sum = 0;

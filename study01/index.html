@@ -4,39 +4,26 @@
     <title>Sum of Positive Numbers</title>
 </head>
 <body>
+    <h2>Sum of Positive Numbers</h2>
+    <p>Enter a positive number (Enter a negative number to stop):</p>
+    <input type="number" id="numberInput" />
+    <button onclick="addNumber()">Submit</button>
+    <p id="sumDisplay">Sum: 0</p>
 
-<h2>Sum of Positive Numbers</h2>
+    <script>
+        let sum = 0;
 
-<input type="number" id="numberInput" placeholder="Enter a number">
-<button onclick="addNumber()">Add</button>
-
-<div id="result"></div>
-
-<script>
-// Define a variable to hold the sum
-let sum = 0;
-
-function addNumber() {
-    // Get the number from the input element
-    let number = document.getElementById("numberInput").value;
-    
-    // Convert the number to an integer
-    number = parseInt(number, 10);
-    
-    // If the number is negative, display the result and end the function
-    if (number < 0) {
-        document.getElementById("result").innerHTML = "Sum of positive numbers: " + sum;
-        return;
-    }
-    
-    // If the number is positive, add it to the sum
-    sum += number;
-    
-    // Clear the input field
-    document.getElementById("numberInput").value = '';
-}
-
-</script>
-
+        function addNumber() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            if (number < 0) {
+                document.getElementById('sumDisplay').innerText = 'Sum: ' + sum;
+                alert('Negative number entered. Loop ends.');
+                return;
+            }
+            sum += number;
+            document.getElementById('sumDisplay').innerText = 'Sum: ' + sum;
+            document.getElementById('numberInput').value = ''; // Clear input field
+        }
+    </script>
 </body>
 </html>
