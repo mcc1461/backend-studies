@@ -198,10 +198,15 @@ const carConstructor = function (brand, model, year){
   }
 }
 
-const newCar = new carConstructor("Ford", "Mustang", 1967);
-console.log(newCar);
+const newCar1 = new carConstructor('Ford', 'Mustang', 1967)
+console.log(typeof newCar1, newCar1)
+console.log( newCar1.brand )
+console.log( newCar1.startEngine() )
 
-
+const newCar2 = new carConstructor('Mercedes', 'CLK200', 2015)
+console.log(typeof newCar2, newCar2)
+console.log( newCar2.brand )
+console.log( newCar2.startEngine() )
 
 
 
