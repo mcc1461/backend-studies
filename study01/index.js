@@ -295,6 +295,18 @@ console.log(Number(0.1 + 0.2) == 0.3);
 
 // console.log(minMax([1,5,8,89,3,2,-1]));
 
+// const arr=[1,5,8,89,3,2,-1]
+// console.log(arr)
+// const arrSorted = arr.sort((a, b) => a - b);
+// console.log(arrSorted)
+// const arrMin = arrSorted[0];
+// const arrMax = arrSorted[arrSorted.length - 1];
+// console.log(`arrMin: ${arrMin}, arrMax: ${arrMax}`);
+
+
+
+
+
 // 4.A word is on the loose and now has tried to hide amongst a crowd of tall letters! Help write a function to detect what the word is, knowing the following rules:
 
 // function detectWord(letter) {
@@ -308,4 +320,23 @@ console.log(Number(0.1 + 0.2) == 0.3);
 //     return Math.abs((date1-date2)/(1000*60*60*24))
 // }
 // console.log(getDays(new Date("june 14, 2019"), new Date("june 20, 2068")));
+// console.log(getDays(new Date("2024-02-21"), new Date("2024-01-30")));
 
+
+const createCounter = function (n) {
+  return function () {
+    while (Math.abs(n) >= 2) {
+      console.log("#",n);
+      (n < 0) ? n = n+1 : "" ;
+      return n-1;
+    } 
+    n = n+1;
+    console.log("**",n);
+    return (Math.abs(n));
+  }
+};
+const counter = createCounter(-2);
+const a = counter();
+const b = counter();
+const c = counter();
+console.log(a, b, c); 
