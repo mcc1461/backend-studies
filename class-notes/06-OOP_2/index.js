@@ -1,41 +1,127 @@
 "use strict"
 
-/* -------------------------------------------------------
-    OOP & CLASSES
-------------------------------------------------------- *
+/* -------------------------------------------------------*/
+    // OOP & CLASSES
+
 //? OOP: Object Oriented Programming
 //? DRY: Don't Repeat Yourself
 //? BLUEPRINT: Taslak (Mimarların kullandığı mavi şablon kağıdı)
 //? CLASS: Obje türetmek için kullanılacak şablon.
 
+// YÖNTEMLER: 1) LITERAL 
+/*
+const student = {
+    name: 'John',
+    age: 30,
+    isAdmin: true,
+    courses: ['html', 'css', 'js'],
+    wife: null
+}
+console.log(student);
+*/
+
+class Teacher {
+    teacherIsMarried = false
+    memleket = 'Ankara'
+
+    constructor (teacherName, teacherAge, teacherBranch ) {
+        this.teacherName = teacherName
+        this.teacherAge = teacherAge
+        this.teacherBranch = teacherBranch
+    }
+
+    getDetails1() {
+        this.teacherIsMarried = true;
+        this.memleket = 'Istanbul';
+        return this
+    }
+    getDetails2() {
+        this.teacherIsMarried = true;
+        this.memleket = 'Denizli';
+        return this
+    }
+}
+
+class Engineer extends Teacher {
+    engineerIsWorking= false
+    constructor (teacherName, teacherAge, teacherBranch, licence) {
+        super(teacherName, teacherAge, teacherBranch) // sırası önemli // Önce super'den aldıkları olmalı
+        this.licence = licence;
+    }
+
+    getDetails() {
+        console.log("Burası çalıştırılacak");
+        this.engineerIsWorking = true;
+        return this
+    }
+    
+}
+
+// console.log(typeof Teacher);
+// const teacher1 = new Teacher('John', 30, 'Computer Science');
+const engineer1 = new Engineer('Osman', 35, 'IT', 'Engine');
+// const engineer1 = new Engineer('Osman', 35, 'IT', "Engine");
+
+console.log(engineer1);
+
+// console.log(teacher1.teacherName);
+// console.log(teacher1.memleket); //Inheritance // Ankara // Bekar
+// console.log(teacher1['getDetails']()); //Inheritance // İstanbul // Evli
+// console.log(engineer1['getDetails']()); //Inheritance // İstanbul // Evli
+
+
+// console.log("merhaba");
+
+class Intern extends Engineer {
+    school= 'School of Science'
+    constructor ( teacherName, teacherAge, teacherBranch, licence, hours, lesson) {
+        super(teacherName, teacherAge, teacherBranch, licence) // sırasıemli // Önce super'den aldıkları olmalı
+        this.hours = hours
+        this.lesson = lesson
+    }
+
+    getDetails() {
+       
+        return  super.getDetails();
+    }
+
+}
+
+const intern1 = new Intern('Leyla', 23, 'Biology', 'Animals', 10, 'newBiology');
+console.log(intern1.getDetails1());
+
+//^ A_PIE : ABSTRACTION : KALITIM || POLYMORPHISM : COK BIRLESTIRME || INHERITANCE : MIRAS ALMA || ENCAPSULATION : KAPSULLEME 
+
+/*
+/* -------------------------------------------------------*
 //* Class Declaration:
 // class PascalCaseClassName { ... }
 
-//* Class Expression:
-const PascalCaseClassName = class {
+// //* Class Expression:
+// const PascalCaseClassName = class {
 
-    undefinedProperty // only definition. (undefinedProperty == undefined)
-    propertyName = 'value' // attribute, field
+//     undefinedProperty // only definition. (undefinedProperty == undefined)
+//     propertyName = 'value' // attribute, field
 
-    // ? "new Class" ile obje oluştururken parametre göndermek için "constructor" isminde bir method kullanırız.
-    constructor (parameter1, parameter2 = 'default-value') {
-        this.parameter1 = parameter1
-        this.parameter2 = parameter2
-    }
+//     // ? "new Class" ile obje oluştururken parametre göndermek için "constructor" isminde bir method kullanırız.
+//     constructor (parameter1, parameter2 = 'default-value') {
+//         this.parameter1 = parameter1
+//         this.parameter2 = parameter2
+//     }
 
-    methodName1() {
-        return this
-    }
- }
+//     methodName1() {
+//         return this
+//     }
+//  }
 
- //? INSTANCE = Bir class'tan türetilen objedir.
+//  //? INSTANCE = Bir class'tan türetilen objedir.
 
-const PascalCaseInstanceName = new PascalCaseClassName(0, 1)
-console.log(PascalCaseInstanceName)
-console.log(PascalCaseInstanceName.propertyName)
-console.log(PascalCaseInstanceName.parameter1)
-console.log(PascalCaseInstanceName.methodName1())
-
+// const PascalCaseInstanceName = new PascalCaseClassName(0, 1)
+// console.log(PascalCaseInstanceName)
+// console.log(PascalCaseInstanceName.propertyName)
+// console.log(PascalCaseInstanceName.parameter1)
+// console.log(PascalCaseInstanceName.methodName1())
+// */
 /* ------------------------------------------------------- *
 
 class Car {
