@@ -30,20 +30,20 @@ dbConnection();
 
 /* ------------------------------------------------------- */
 // Middlewares:
-
 // Accept JSON:
 app.use(express.json());
-
 // SessionsCookies:
 app.use(require("cookie-session")({ secret: process.env.SECRET_KEY }));
+// res.getModelList():
+app.use(require("./src/middlewares/findSearchSortPage"));
+
+
 
 // /personnels
 app.use("/personnels", require("./src/routes/personnel.router"));
 app.use("/departments", require("./src/routes/department.router"));
 
 
-// res.getModelList():
-app.use(require("./src/middlewares/findSearchSortPage"));
 
 /* ------------------------------------------------------- */
 // Routes:
