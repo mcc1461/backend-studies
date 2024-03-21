@@ -43,6 +43,7 @@ app.use(require("./src/middlewares/findSearchSortPage"));
 app.use("/personnels", require("./src/routes/personnel.router"));
 app.use("/departments", require("./src/routes/department.router"));
 
+app.use(require('./src/middlewares/authentication'))
 
 
 /* ------------------------------------------------------- */
@@ -55,6 +56,9 @@ app.all("/", (req, res) => {
 });
 
 /* ------------------------------------------------------- */
+
+app.use(require('./src/routes/'))
+
 
 // errorHandler:
 app.use(require("./src/middlewares/errorHandler"));
