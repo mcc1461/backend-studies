@@ -1,0 +1,6 @@
+::ffff:127.0.0.1 - - [25/Mar/2024:19:16:19 +0000] "GET /users HTTP/1.1" 200 131 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Mar/2024:19:18:26 +0000] "GET /users HTTP/1.1" 200 131 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Mar/2024:19:18:27 +0000] "GET /users HTTP/1.1" 200 131 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Mar/2024:19:18:34 +0000] "POST /users HTTP/1.1" 500 164 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Mar/2024:19:19:38 +0000] "POST /users HTTP/1.1" 500 215 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Mar/2024:19:20:12 +0000] "POST /users HTTP/1.1" 201 295 "-" "Thunder Client (https://www.thunderclient.com)"
