@@ -15,8 +15,8 @@ router.use('/users', require('./user'))
 // token:
 router.use('/tokens', require('./token'))
 
-// car:
-router.use('/cars', require('./car'))
+// brand:
+router.use('/brands', require('./brand'))
 // reservation:
 router.use('/reservations', require('./reservation'))
 

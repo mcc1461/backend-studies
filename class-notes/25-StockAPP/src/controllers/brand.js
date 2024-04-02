@@ -2,17 +2,17 @@
 /* -------------------------------------------------------
     NODEJS EXPRESS | CLARUSWAY FullStack Team
 ------------------------------------------------------- */
-// Car Controller:
+// Brand Controller:
 
-const Car = require('../models/sale')
+const Brand = require('../models/brand')
 // const User = require('../models/user')
 
 module.exports = {
 
     list: async (req, res) => {
         /*
-            #swagger.tags = ["Cars"]
-            #swagger.summary = "List Cars"
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "List Brands"
             #swagger.description = `
                 You can send query with endpoint for filter[], search[], sort[], page and limit.
                 <ul> Examples:
@@ -24,11 +24,11 @@ module.exports = {
             `
         */
 
-        const data = await res.getModelList(Car)
+        const data = await res.getModelList(Brand)
 
         res.status(200).send({
             error: false,
-            details: await res.getModelListDetails(Car),
+            details: await res.getModelListDetails(Brand),
             data
            
         })
@@ -36,22 +36,22 @@ module.exports = {
 
     create: async (req, res) => {
         /*
-            #swagger.tags = ["Cars"]
-            #swagger.summary = "Create Car"
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "Create Brand"
             #swagger.parameters['body'] = {
                 in: 'body',
                 required: true,
                 schema: {
-                    $ref: '#/definitions/Car'
+                    $ref: '#/definitions/Brand'
                 }
             }
         */
        
        // createdId ve updatedId verisini req.user'dan al:
-       req.body.createdId = req.user._id
-       req.body.updatedId = req.user._id
+    //    req.body.createdId = req.user._id
+    //    req.body.updatedId = req.user._id
        
-       const data = await (await Car.create(req.body)).populate("createdId {createdId} updatedId {updatedId}")
+       const data = await Brand.create(req.body)
        console.log(data)
         res.status(201).send({
             error: false,
@@ -61,11 +61,11 @@ module.exports = {
 
     read: async (req, res) => {
         /*
-            #swagger.tags = ["Cars"]
-            #swagger.summary = "Get Single Car"
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "Get Single Brand"
         */
 
-        const data = await Car.findOne({ _id: req.params.id })
+        const data = await Brand.findOne({ _id: req.params.id })
 
         res.status(200).send({
             error: false,
@@ -76,37 +76,37 @@ module.exports = {
 
     update: async (req, res) => {
         /*
-            #swagger.tags = ["Cars"]
-            #swagger.summary = "Update Car"
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "Update Brand"
             #swagger.parameters['body'] = {
                 in: 'body',
                 required: true,
                 schema: {
-                    $ref: '#/definitions/Car'
+                    $ref: '#/definitions/Brand'
                 }
             }
         */
 
         // updatedId verisini req.user'dan al:
-        req.body.updatedId = req.user._id
+        // req.body.updatedId = req.user._id
 
-        const data = await Car.updateOne(customFilter, req.body, { runValidators: true })
+        const data = await Brand.updateOne({ _id: req.params.id }, req.body, { runValidators: true })
 
         res.status(202).send({
             error: false,
             data,
-            new: await Car.findOne({ _id: req.params.id })
+            new: await Brand.findOne({ _id: req.params.id }) // updated data
         })
 
     },
 
     delete: async (req, res) => {
         /*
-            #swagger.tags = ["Cars"]
-            #swagger.summary = "Delete Car"
+            #swagger.tags = ["Brands"]
+            #swagger.summary = "Delete Brand"
         */
 
-        const data = await Car.deleteOne({ _id: req.params.id })
+        const data = await Brand.deleteOne({ _id: req.params.id })
 
         res.status(data.deletedCount ? 204 : 404).send({
             error: !data.deletedCount,
