@@ -59,7 +59,7 @@ module.exports = {
             if (reservedCars.length) {
                 customFilter._id = { $nin: reservedCars }
             }
-            console.log(customFilter)
+            // console.log(customFilter)
         
         } else {
             req.errorStatusCode = 401
