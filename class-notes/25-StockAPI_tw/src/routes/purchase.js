@@ -4,23 +4,23 @@
 ------------------------------------------------------- */
 const router = require('express').Router()
 /* ------------------------------------------------------- */
-// routes/brand:
+// routes/purchase:
 
-const brand = require('../controllers/brand')
+const purchase = require('../controllers/purchase')
 
 // const permissions = require('../middlewares/permissions')
 
-// URL: /brands
+// URL: /purcahases
 
 router.route('/')
-    .get(brand.list)
-    .post( brand.create)
+    .get(purchase.list)
+    .post( purchase.create)
 
 router.route('/:id')
-    .get(brand.read)
-    .put(brand.update)
-    .patch(brand.update)
-    .delete( brand.delete)
+    .get(purchase.read) 
+    .put(purchase.update)
+    .patch(purchase.update)
+    .delete( purchase.delete)
 
 /* ------------------------------------------------------- */
 module.exports = router

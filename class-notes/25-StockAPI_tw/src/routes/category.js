@@ -4,23 +4,23 @@
 ------------------------------------------------------- */
 const router = require('express').Router()
 /* ------------------------------------------------------- */
-// routes/brand:
+// routes/category:
 
-const brand = require('../controllers/brand')
+const category = require('../controllers/category')
 
 // const permissions = require('../middlewares/permissions')
 
-// URL: /brands
+// URL: /categorys
 
 router.route('/')
-    .get(brand.list)
-    .post( brand.create)
+    .get(category.list)
+    .post( category.create)
 
 router.route('/:id')
-    .get(brand.read)
-    .put(brand.update)
-    .patch(brand.update)
-    .delete( brand.delete)
+    .get(category.read)
+    .put(category.update)
+    .patch(category.update)
+    .delete( category.delete)
 
 /* ------------------------------------------------------- */
 module.exports = router

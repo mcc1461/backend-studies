@@ -44,13 +44,13 @@ const FirmSchema = new mongoose.Schema({
     phone: {
         type: String,
         trim: true,
-        required: true
+        required: false,
     },
 
     address: {
         type: String,
         trim: true,
-        required: true
+        required: false,
     },
 
     // images: [],
