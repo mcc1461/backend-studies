@@ -7,6 +7,18 @@ const app = express()
 
 /* ------------------------------------------------------- */
 // Required Modules:
+/* 
+    npm init -y
+    npm install express mongoose dotenv express-async-errors
+    npm install bcryptjs jsonwebtoken multer
+    npm install swagger-ui-express swagger-jsdoc
+    npm install redoc-express
+    mkdir logs
+    touch logs/access.log
+    cp .env-sample .env
+   
+
+*/
 
 // envVariables to process.env:
 require('dotenv').config()
@@ -71,4 +83,4 @@ app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`))
 
 /* ------------------------------------------------------- */
 // Syncronization (must be in commentLine):
-// require('./src/helpers/sync')() // !!! It clear database.
+require('./src/helpers/sync')() // !!! It clear database.

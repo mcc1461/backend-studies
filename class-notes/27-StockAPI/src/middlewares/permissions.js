@@ -8,37 +8,52 @@ module.exports = {
 
     isLogin: (req, res, next) => {
 
-        // return next()
+        // Set Passive:
+        return next()
 
-        if (req.user && req.user.isActive) {
+        // any User:
+        if (req.user && req.user.is_active) {
+
             next()
+
         } else {
+
             res.errorStatusCode = 403
             throw new Error('NoPermission: You must login.')
         }
     },
 
-    isStaff: (req, res, next) => {
+    isAdmin: (req, res, next) => {
 
-        // return next()
+        // Set Passive:
+        return next()
+        
+        // only Admin:
+        if (req.user && req.user.is_active && req.user.is_superadmin) {
 
-        if (req.user && req.user.isActive && (req.user.isAdmin || req.user.isStaff)) {
             next()
+
         } else {
+
             res.errorStatusCode = 403
             throw new Error('NoPermission: You must login and to be Admin.')
         }
     },
 
-    isAdmin: (req, res, next) => {
+    isStaff: (req, res, next) => {
 
-        // return next()
+        // Set Passive:
+        return next()
+        
+        // only Admin or Staff:
+        if (req.user && req.user.is_active && (req.user.is_superadmin || req.user.is_staff)) {
 
-        if (req.user && req.user.isActive && req.user.isAdmin) {
             next()
+
         } else {
+
             res.errorStatusCode = 403
-            throw new Error('NoPermission: You must login and to be Admin.')
+            throw new Error('NoPermission: You must login and to be Staff.')
         }
     },
 }
