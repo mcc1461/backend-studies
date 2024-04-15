@@ -29,6 +29,9 @@ dbConnection()
 // Accept JSON:
 app.use(express.json())
 
+// Call static uploadFile:
+app.use('/upload', express.static('./upload'))
+
 // Check Authentication:
 app.use(require('./src/middlewares/authentication'))
 
@@ -45,7 +48,7 @@ app.use(require('./src/middlewares/findSearchSortPage'))
 app.all('/', (req, res) => {
     res.send({
         error: false,
-        message: 'Welcome to RENT A CAR API',
+        message: 'Welcome to Stock Management API',
         documents: {
             swagger: '/documents/swagger',
             redoc: '/documents/redoc',
@@ -68,4 +71,4 @@ app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`))
 
 /* ------------------------------------------------------- */
 // Syncronization (must be in commentLine):
-// require('./src/helpers/sync')()
+// require('./src/helpers/sync')() // !!! It clear database.

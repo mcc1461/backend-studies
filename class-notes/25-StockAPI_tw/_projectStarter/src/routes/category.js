@@ -2,4 +2,5 @@
 /* -------------------------------------------------------
     NODEJS EXPRESS | CLARUSWAY FullStack Team
 ------------------------------------------------------- */
-// Reservation Controller:
+const router = require('express').Router()
+/* ------------------------------------------------------- */
