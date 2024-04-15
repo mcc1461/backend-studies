@@ -13,8 +13,8 @@ module.exports = async function () {
     await mongoose.connection.dropDatabase()
     console.log('- Database and all data DELETED!')
     /* REMOVE DATABASE */
-/* ------------------------------------------------------- */
-    /* User *
+
+    /* User */
     const User = require('../models/user')
     await User.deleteMany() // !!! Clear collection.
     await User.create({
@@ -50,9 +50,6 @@ module.exports = async function () {
         "is_staff": false,
         "is_superadmin": false
     })
-
-/* ------------------------------------------------------- */
-
 
     /* Brand *
     const Brand = require('../models/brand')
